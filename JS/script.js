@@ -67,7 +67,7 @@ class Funcionario {
     
     get nome () {return this._nome}
     get data () {return this._data}
-    get cpf () {return this.cpf}
+    get cpf () {return this._cpf}
     get telefone () {return this._telefone}
     get celular () {return this._celular}
     get pis () {return this._pis}
@@ -81,8 +81,11 @@ const nvFun = new Funcionario;
 
 const btEnviar = document.getElementById("btnSubmit");
 
+const ul = document.querySelector(".cardFunc ul");
+
 btEnviar.addEventListener("click", function recebeValor(evt){
     evt.preventDefault();
+   
 
     const campoNome = document.getElementById("name");
     nvFun.nome = campoNome.value;
@@ -105,8 +108,59 @@ btEnviar.addEventListener("click", function recebeValor(evt){
     const campoStudies = document.getElementById("studies");
     nvFun.check = campoStudies.checked;
 
+    const cardFunc = document.querySelector(".cardFunc");
+    console.log(cardFunc)
+  
+    const li            = document.createElement("li");
+    const li2            = document.createElement("li");
+    const li3            = document.createElement("li");
+    const li4            = document.createElement("li");
+    const li5            = document.createElement("li");
+    const li6            = document.createElement("li");
+    const li7            = document.createElement("li");
+    const spanNome      = document.createElement("span");
+    const spanData      = document.createElement("span");
+    const spanCpf       = document.createElement("span");
+    const spanTelefone  = document.createElement("span");
+    const spanCelular   = document.createElement("span");
+    const spanPis       = document.createElement("span");
+    const spanCheck     = document.createElement("span");
+
+    spanNome.innerText = nvFun.nome;
+    spanData.innerText = nvFun.data;
+    spanCpf.innerText = nvFun.cpf;
+    spanTelefone.innerText = nvFun.telefone;
+    spanCelular.innerText = nvFun.celular;
+    spanPis.innerText = nvFun.pis;
+    spanCheck.innerText = nvFun.check;
+
+    li.appendChild(spanNome);
+    li2.appendChild(spanData);
+    li3.appendChild(spanCpf);
+    li4.appendChild(spanTelefone);
+    li5.appendChild(spanCelular);
+    li6.appendChild(spanPis);
+    li7.appendChild(spanCheck);
+
+        
+    
+    ul.appendChild(li);
+    ul.appendChild(li2);
+    ul.appendChild(li3);
+    ul.appendChild(li4);
+    ul.appendChild(li5);
+    ul.appendChild(li6);
+    ul.appendChild(li7);
+
+    
+    
+    cardFunc.style.border = "solid 5px red";
+    
+
+
 // nvFun.novoNome = "Teste123";
 console.log(nvFun);   
+console.log(nvFun.nome);   
     
 },false);
 
